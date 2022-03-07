@@ -1,32 +1,98 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+<div id="app">
+  <div id="menu">
+    <div id="brand">
+      <router-link to="/">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Open_book_01.svg">
+      </router-link>
+    </div>
+    <div id="side">
+      <router-link to="/">
+        <div class="menu-item browse">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Search_Noun_project_15028.svg">
+          <p>Browse</p>
+        </div>
+      </router-link>
+      <router-link to="/shelf">
+        <div class="menu-item browse">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/Book_%2823019%29_-_The_Noun_Project.svg">
+          <p id="shelf-size">0 books</p>
+        </div>
+      </router-link>
+      <router-link to="/reviews">
+        <div class="menu-item">
+         <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Pen_-_The_Noun_Project.svg">
+         <p>Reviews</p>
+        </div>
+      </router-link>
+    </div>
   </div>
+  <router-view />
+  <div class="footer">
+   <hr>
+   <h3>Git Hub</h3>
+   <a href="https://github.com/wijams/readinglist">Git Repo</a>
+  </div>
+</div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 50px 100px;
+
+}
+
+#menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5px;
+  grid-template-areas: "none brand side";
+  margin-bottom: 50px;
+}
+
+#menu a {
+  color: #B84901;
+}
+
+#brand {
+  grid-area: brand;
+  display: flex;
+  justify-content: center;
+}
+
+#brand img {
+  height: 200px;
+}
+
+#side {
+  grid-area: side;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#side img {
+  width: 50px;
+}
+
+.menu-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-item p {
+  margin: 0px;
+}
+
+.browse {
+  margin-right: 50px;
+}
+
+.footer {
   text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+  justify-content: center;
 }
 </style>

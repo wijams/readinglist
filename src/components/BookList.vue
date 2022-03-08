@@ -2,14 +2,15 @@
 <div class="wrapper">
   <div class="books">
     <div class="book" v-for="book in books" :key="book.id">
-      <div class="info">
-        <h1>{{book.name}}</h1>
-      </div>
       <div class="image">
         <img :src="book.image">
       </div>
+      <div class="info">
+        <h1>{{book.name}}</h1>
+        <h2>{{book.author}}</h2>
+        <p>{{book.length}}</p>
+      </div>
       <div class="length">
-        <h2>{{book.length}}</h2>
         <button @click="addToShelf(book)" class="auto">Add to Bookshelf</button>
       </div>
     </div>
@@ -33,8 +34,10 @@ export default {
 </script>
 
 <style scoped>
+
 .wrapper {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -62,14 +65,15 @@ export default {
 .book .image {
   display: flex;
   justify-content: center;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 
 .info {
   background: #8da683;
   color: #000;
   padding: 10px 30px;
-  height: 80px;
+  height: 150px;
+  margin-bottom: 5px;
 }
 
 .info h1 {
@@ -85,7 +89,6 @@ export default {
   font-size: 10px;
 }
 
-
 .length {
   display: flex;
 }
@@ -96,6 +99,7 @@ export default {
 
 button {
   height: 50px;
+  width: 200px;
   background: #000;
   color: white;
   border: none;
@@ -104,4 +108,6 @@ button {
 .auto {
   margin-left: auto;
 }
+
+
 </style>

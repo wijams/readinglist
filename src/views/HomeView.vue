@@ -41,7 +41,7 @@ export default {
 .search {
   border: 1px solid #ccc;
   border-radius: 4px;
-  width: 50%;
+  width: 75%;
 }
 
 form {
@@ -62,5 +62,11 @@ input {
   box-shadow: none !important;
   width: 100%;
   height: 40px;
+}
+
+@media (min-width: 48em) {
+ .wrapper {
+  align-items: flex-start;
+ }
 }
 </style>

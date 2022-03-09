@@ -9,6 +9,7 @@
         <h1>{{book.name}}</h1>
         <h2>{{book.author}}</h2>
         <p>{{book.length}}</p>
+        <p>{{book.description}}</p>
       </div>
       <div class="length">
         <button @click="remove(book)" class="auto">Remove from Bookshelf</button>
@@ -34,7 +35,7 @@ export default {
      }
     }
     this.$root._data.shelf.splice(index, 1);
-    document.getElementById("shelf-size").innerHTML = this.$root._data.shelf.length + " items";
+    document.getElementById("shelf-size").innerHTML = this.$root._data.shelf.length + " books";
    }
   }
 }
@@ -77,7 +78,7 @@ export default {
   background: #8da683;
   color: #000;
   padding: 10px 30px;
-  height: 150px;
+  height: 300px;
   margin-bottom: 5px;
 }
 
@@ -114,4 +115,57 @@ button {
 .auto {
   margin-left: auto;
 }
+
+@media (min-width: 48em) {
+ .wrapper {
+  justify-content: left;
+  align-items: flex-start;
+ }
+ .books {
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+ }
+ .book {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 5px;
+  grid-template-areas: "image info none";
+ }
+ .book img {
+   height: 500px;
+ width: 400px;
+ }
+ .book .image {
+  display: block;
+  justify-content: left;
+ }
+ .image {
+  grid-area: image;
+  display: flex;
+  justify-content: center;
+ }
+
+ .info {
+  grid-area: info;
+  display: flex;
+  justify-content: center;
+  width: 800px;
+  height: 500px;
+ }
+
+ .info h1, h2, p {
+                                margin: 20px;
+ }
+
+ .info h1, h2 {
+  font-size: 20px;
+ }
+
+ .info p {
+  font-size: 16px;
+  margin: 20px;
+ }
+}
+
 </style>

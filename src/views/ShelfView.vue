@@ -1,7 +1,7 @@
 <template>
 <div>
- <h1>Your Bookshelf</h1>
- <h3 v-if="this.$root.$data.shelf.length === 0">Your bookshelf is empty</h3>
+ <h1 class="head">Your Bookshelf</h1>
+ <h3 class="head" v-if="this.$root.$data.shelf.length === 0">Your bookshelf is empty</h3>
  <BookShelf :books="shelf" />
 </div>
 </template>
@@ -25,3 +25,15 @@ export default {
    }
  }
 </script>
+
+<style>
+.head {
+ text-align: center;
+}
+@media (min-width: 48em) {
+ .wrapper {
+  align-items: flex-start;
+ }
+}
+
+</style>
